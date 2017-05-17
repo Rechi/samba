@@ -1047,6 +1047,8 @@ else
     if test x"$CEPHFS_PATH_SPEC" = x"yes"; then
         AC_MSG_ERROR([No valid libcephfs found in ${CEPHFS_PATH}])
     fi
+    save_CFLAGS="$CFLAGS"
+    save_LDFLAGS="$LDFLAGS"
 fi
 
 CFLAGS="$save_CFLAGS"

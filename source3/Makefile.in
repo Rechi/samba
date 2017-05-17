@@ -458,7 +458,8 @@ LIB_OBJ = $(LIBSAMBAUTIL_OBJ) $(UTIL_OBJ) $(CRYPTO_OBJ) $(LIBTSOCKET_OBJ) \
 	  lib/ctdb_conn.o \
 	  lib/msg_channel.o \
 	  lib/id_cache.o \
-	  ../lib/socket/interfaces.o lib/memcache.o \
+	  lib/util_ea.o \
+	  ../lib/socket/interfaces.o ../lib/util/memcache.o \
 	  lib/talloc_dict.o \
 	  lib/serverid.o \
 	  lib/asys/asys.o \
@@ -585,6 +586,7 @@ LIBSMB_OBJ0 = \
 	       libsmb/auth_generic.o \
 	       ../lib/krb5_wrap/krb5_samba.o \
 	       libsmb/clispnego.o \
+	       libsmb/cli_smb2_fnum.o \
 	       ../auth/gensec/gensec.o \
 	       ../auth/gensec/gensec_start.o \
 	       ../auth/gensec/gensec_util.o \
