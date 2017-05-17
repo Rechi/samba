@@ -581,7 +581,7 @@ noccache:
 			return NT_STATUS_NO_MEMORY;
 		}
 	} else if (ntlmssp_state->neg_flags & NTLMSSP_NEGOTIATE_NTLM2) {
-		MD5_CTX md5_session_nonce_ctx;
+		struct MD5Context md5_session_nonce_ctx;
 		uint8_t session_nonce[16];
 		uint8_t session_nonce_hash[16];
 		uint8_t user_session_key[16];
