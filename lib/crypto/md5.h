@@ -6,16 +6,12 @@
 #define HEADER_MD5_H 
 #endif
 
-#if defined(HAVE_BSD_MD5_H)
-/* Try to avoid clashes with BSD MD5 implementation (on linux) */
+#ifdef HAVE_BSD_MD5_H
+/* Try to avoid clashes with BSD MD5 implementation */
 #include <bsd/md5.h>
-
-#elif defined(HAVE_SYS_MD5_H)
-/* Try to avoid clashes with BSD MD5 implementation (on BSD) */
-#include <sys/md5.h>
-
+#else
 /* Try to use CommonCrypto on Mac as otherwise we can get MD5Final twice */
-#elif defined(HAVE_COMMONCRYPTO_COMMONDIGEST_H)
+#ifdef HAVE_COMMONCRYPTO_COMMONDIGEST_H
 #include <CommonCrypto/CommonDigest.h>
 
 #define MD5Init(c)					CC_MD5_Init(c)
@@ -36,6 +32,8 @@ void MD5Init(MD5_CTX *context);
 void MD5Update(MD5_CTX *context, const uint8_t *buf,
 	       size_t len);
 void MD5Final(uint8_t digest[MD5_DIGEST_LENGTH], MD5_CTX *context);
-#endif /* HAVE_*MD5_H */
+#endif /* HAVE_COMMONCRYPTO_COMMONDIGEST_H */
+
+#endif /* HAVE_BSD_MD5_H */
 
 #endif /* !MD5_H */
