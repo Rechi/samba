@@ -27,6 +27,7 @@ if test x$enable_fhs != xyes; then
 	INCLUDEDIR="${includedir}"
 	SETUPDIR="${datadir}/setup"
 	PKGCONFIGDIR="${libdir}/pkgconfig"
+	SWATDIR="${datadir}/swat"
 	CODEPAGEDIR="${datadir}/codepages"
 	PAMMODULESDIR="${libdir}/security"
 	CONFIGDIR="\${sysconfdir}"
@@ -45,6 +46,7 @@ else
 	INCLUDEDIR="${includedir}/samba-4.0"
 	SETUPDIR="${datadir}/samba/setup"
 	PKGCONFIGDIR="${libdir}/pkgconfig"
+	SWATDIR="${datadir}/samba/swat"
 	CODEPAGEDIR="${datadir}/samba/codepages"
 	PAMMODULESDIR="${libdir}/security"
 	CONFIGDIR="\${sysconfdir}/samba"
@@ -277,6 +279,7 @@ AC_SUBST(MODULESDIR)
 AC_SUBST(INCLUDEDIR)
 AC_SUBST(SETUPDIR)
 AC_SUBST(PKGCONFIGDIR)
+AC_SUBST(SWATDIR)
 AC_SUBST(CODEPAGEDIR)
 AC_SUBST(PAMMODULESDIR)
 AC_SUBST(CONFIGDIR)
